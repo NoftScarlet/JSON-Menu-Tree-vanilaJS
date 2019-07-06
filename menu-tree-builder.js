@@ -98,14 +98,11 @@ var ulTreeBuilder = (arrObjs) => {
     let ulParent = document.createElement('ul');
     for (let i = 0; i < arrObjs.length; i++) {
         let liSingle = liCreator(arrObjs[i]);
-
         if (arrObjs[i].children) {
             let ulWithChildren = ulTreeBuilder(arrObjs[i].children);
             liSingle.appendChild(ulWithChildren);
-            ulParent.appendChild(liSingle);
-        } else {
-            ulParent.appendChild(liSingle)
         }
+        ulParent.appendChild(liSingle)
     }
     return ulParent;
 };
